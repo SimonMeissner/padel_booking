@@ -5,6 +5,7 @@ from selenium.webdriver.support import expected_conditions as EC
 from datetime import datetime
 import os
 from dotenv import load_dotenv
+import time
 
 def clickCorrectBookingElement(dayTime: int):
     weekDay = datetime.now().weekday()
@@ -13,6 +14,8 @@ def clickCorrectBookingElement(dayTime: int):
     overviewTargetBooking.click()
 
 if __name__ == "__main__":
+
+    time.sleep(2) # Workaround for second granularity not beeing available in macOS cron jobs
 
     dotenv_path = ".env"  # Path to the .env file
     load_dotenv(dotenv_path)
